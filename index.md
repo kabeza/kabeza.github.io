@@ -24,7 +24,7 @@
                 <div class="card">                    
                     <div class="card-body">
                         <h4 class="card-title">Under Construction</h4>
-                        <p class="card-text">Just Trying Github Pages</p>
+                        <p class="card-text">1 Just Trying Github Pages</p>
                     </div>
                 </div>                
             </div>
