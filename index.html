@@ -140,7 +140,7 @@
         }
       }).then(response => {
         if (response.ok) {
-          status.innerHTML = "Thanks for your message!";
+          status.innerHTML = "¡Gracias por contactarse. Pronto estaremos respondiendo!";
           form.reset()
         } else {
           response.json().then(data => {
