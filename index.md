@@ -15,7 +15,7 @@
         }
     </style>
 
-    <title>@kabeza</title>
+    <title>@kabeza personal page</title>
   </head>
   <body>
     <main class="container-fluid">
