@@ -1,190 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>BEZA - Desarrollo Web & Sistemas</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="img/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-    <link rel="stylesheet" href="css/mdb.min.css" />
-  </head>
+  <title>BEZA :: Desarrollo Web & Sistemas</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-  <body>
-    <header>
-      <style>
-        #intro {
-          background-image: url("./img/avion.jpg");
-          height: 100vh;
-        }
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/img/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/img/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/img/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/img/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/img/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/img/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
 
-        /* Height for devices larger than 576px */
-        @media (min-width: 992px) {
-          #intro {
-            margin-top: -58.59px;
-          }
-        }
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
 
-        .navbar .nav-link {
-          color: #fff !important;
-        }
-      </style>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-      <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
-        <div class="container-fluid">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-          <a class="navbar-brand nav-link" href="https://beza.com.ar">
-            <strong>BEZA</strong>
-          </a>
-          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-            aria-controls="navbarExample01" aria-expanded="false" aria-label="Activar Menu">
-            <i class="fas fa-bars"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarExample01">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            </ul>
-            <ul class="navbar-nav d-flex flex-row">
-              <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="https://github.com/kabeza" rel="nofollow" target="_blank">
-                  <i class="fab fa-github"></i>
-                </a>
-              </li>
-              <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="https://www.linkedin.com/in/kabeza/" rel="nofollow" target="_blank">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-              </li>
-              <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="https://www.instagram.com/qbecerra" rel="nofollow" target="_blank">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </li>
-              <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="https://twitter.com/kabeza" rel="nofollow" target="_blank">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-              <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="http://500px.com/kabeza" rel="nofollow" target="_blank">
-                  <i class="fab fa-500px"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MyResume
+  * Updated: Jun 13 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center">
+
+    <nav id="navbar" class="navbar nav-menu">
+      <ul>
+        <li><a href="#home" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+        <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+      </ul>
+    </nav>
+
+  </header><!-- End Header -->
+
+  <!-- ======= Home Section ======= -->
+  <section id="home" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Kike Becerra</h1>
+      <p>I'm <span class="typed" data-typed-items="Software Developer, Freelancer, FullStack Developer, Mobile Developer"></span></p>
+      <div class="social-links">
+        <a href="https://twitter.com/kabeza" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/kabeza/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://github.com/kabeza" class="github"><i class="bx bxl-github"></i></a>
+      </div>
+    </div>
+  </section><!-- End Home -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>About</h2>
+          <p>
+            As a long-time freelancer, I have experience working with
+            languages such as Delphi/Pascal, Java, and C++. I am a web 
+            applications developer with a focus on content management systems. 
+            I am well-versed in CodeIgniter HMVC and have recently been 
+            working with JavaScript, React, and React Native apps. I am also currently 
+            learning NextJS and other frameworks. Additionally, I am a Linux 
+            enthusiast and have experience as a sys-admin. If you're interested
+            in working together, please don't hesitate to reach out via email 
+            or connect with me on social media.
+          </p>
         </div>
-      </nav>
 
-      <div id="intro" class="bg-image shadow-2-strong">
-        <div class="mask" style="background-color: rgba(0, 0, 0, 0.1);">
-          <div class="container d-flex align-items-center justify-content-center h-100">
-            <div class="container">
-              <div class="row text-white">
-                <div class="col-lg-12 col-md-12 col-sm-12 p-3">
-                  <img class="img-fluid" src="./img/beza.png" alt="BEZA - Desarrollo Web & Sistemas">
-                </div>
+        <div class="row mb-5">
+          <div class="col-lg-12">
+            <img src="assets/img/beza.png" class="img-fluid" alt="">
+          </div>          
+        </div>
+        <div class="row">
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>Freelance Web Developer</h3>
+            <div class="row">
+              <div class="col-lg-12">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>PHP</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>WordPress CMS</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>CodeIgniter Framework</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>ReactJS, NextJS, Astro</strong></li>
+                </ul>
               </div>
-              <div class="row text-white mt-4">
-                <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-                  <h3>Kike Becerra</h3>
-                  <h5><a class="eml-protected text-white" href="#">9cf7dcfef9e6fdb2fff3f1b2fdee</a></h5>
-                </div>
+            </div>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>Databases</h3>
+            <p>Experience with the following RDBMS and No-SQL systems</p>
+            <div class="row">
+              <div class="col-lg-12">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>MySQL</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>SQL Server</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Oracle</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>MongoDB</strong></li>
+                </ul>
               </div>
-              <div class="row text-white">
-                <div class="col-lg-12 col-md-12 col-sm-12 p-3">
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-lg-5 col-sm-12">
-                        <p class="small text-justify">As a long-time freelancer, I have experience working with
-                          languages such as
-                          Delphi/Pascal, Java, and C++. I am a web
-                          applications developer with a focus on content management systems. I am well-versed in
-                          CodeIgniter HMVC and
-                          have
-                          recently been working with JavaScript, React, and React Native apps. I am also currently
-                          learning NextJS and
-                          other
-                          frameworks. Additionally, I am a Linux enthusiast and have experience as a sys-admin. If
-                          you're interested
-                          in working
-                          together, please don't hesitate to reach out via email or connect with me on social media.</p>
-                      </div>
-                      <div class="col-lg-5 offset-lg-2 col-sm-12">
-                        <p class="small text-justify">Desarrollador Freelance durante muchos años. Tengo experiencia
-                          trabajando con lenguajes
-                          como
-                          Delphi/Pascal, Java y C++. Desarrollo aplicaciones web con enfoque en sistemas de gestión de
-                          contenido. Tengo buenos
-                          conocimientos en
-                          CodeIgniter HMVC y recientemente he estado trabajando con aplicaciones JavaScript, React y
-                          React Native. También
-                          estoy actualmente aprendiendo NextJS y otros frameworks. Además, soy un entusiasta de Linux y
-                          tengo experiencia como
-                          sys-admin. No dudes en ponerte en contacto a través de correo electrónico o conectarte
-                          conmigo en las redes sociales</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            </div>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>Mobile</h3>
+            <div class="row">
+              <div class="col-lg-12">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>TypeScript</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>React Native</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Firebase</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content">
+            <h3>Devops</h3>
+            <div class="row">
+              <div class="col-lg-12">
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Linux Sysadmin</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Docker basics</strong></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Kubernetes</strong></li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </section><!-- End About Section -->
 
-    <script>
-      function decodeEmail(encodedString) {
-        var email = "";
-        var keyInHex = encodedString.substr(0, 2);
-        var key = parseInt(keyInHex, 16);
-        for (var n = 2; n < encodedString.length; n += 2) {
-          var charInHex = encodedString.substr(n, 2)
-          var char = parseInt(charInHex, 16);
-          var output = char ^ key;
-          email += String.fromCharCode(output);
-        }
-        return email;
-      }
+  </main><!-- End #main -->
 
-      var allElements = document.getElementsByClassName("eml-protected");
-      for (var i = 0; i < allElements.length; i++) {
-        updateAnchor(allElements[i])
-      }
-      function updateAnchor(el) {
-        var encoded = el.innerHTML;
-        var decoded = decodeEmail(encoded);
-        el.textContent = decoded;
-        el.href = 'mailto:' + decoded;
-      }
-    </script>
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q8FX8X55N4"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-Q8FX8X55N4');
-    </script>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>BEZA :: Desarrollo Web & Sistemas</h3>
+      <p>Fullstack / Mobile Freelancer Developer</p>
+      <div class="social-links">
+        <a href="https://twitter.com/kabeza" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/kabeza/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://github.com/kabeza" class="github"><i class="bx bxl-github"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>MyResume</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: [license-url] -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
 
-  </body>
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
 </html>
