@@ -150,7 +150,19 @@ const currentPath = Astro.url.pathname;
   @media (max-width: 600px) {
     .nav-item span { display: none; }
     .nav-item { padding: 0.8rem; }
-    .navbar { top: auto; bottom: 2rem; }
+    .navbar { 
+      top: 1rem; 
+      bottom: auto; 
+    }
+    .nav-container {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid color-mix(in srgb, var(--primary), transparent 60%);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+    :global([data-theme='dark']) .nav-container {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid color-mix(in srgb, var(--primary), transparent 60%);
+    }
   }
 </style>
 
@@ -163,18 +175,24 @@ const currentPath = Astro.url.pathname;
     navItems.forEach(item => {
       item.addEventListener('click', () => {
         const target = item.getAttribute('data-section');
+        const targetSection = document.getElementById(target);
         
         // Update UI
         navItems.forEach(i => i.classList.remove('active'));
         item.classList.add('active');
 
-        // Switch Sections
-        sections.forEach(s => {
-          s.classList.remove('active');
-          if (s.id === target) {
-            s.classList.add('active');
-          }
-        });
+        if (window.innerWidth <= 768 && targetSection) {
+          // Mobile: Scroll to section
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          // Desktop: Switch Sections
+          sections.forEach(s => {
+            s.classList.remove('active');
+            if (s.id === target) {
+              s.classList.add('active');
+            }
+          });
+        }
       });
     });
 
