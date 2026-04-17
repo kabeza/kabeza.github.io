@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import { defaultLang } from '../i18n/ui';
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: 'en' | 'es';
+}
+
+const { title, description = "Kike Becerra - Fullstack & Mobile Developer", lang = defaultLang as 'en' | 'es' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png" />
+    <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script is:inline>
+      // Theme Detection & Persistence
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+    
+      if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+
+      window.localStorage.setItem('theme', theme);
+
+      // Language Detection
+      const getInitialLang = () => {
+        const saved = localStorage.getItem('lang');
+        if (saved) return saved;
+        const browserLang = navigator.language.split('-')[0];
+        return ['en', 'es'].includes(browserLang) ? browserLang : 'en';
+      };
+
+      document.documentElement.setAttribute('lang', getInitialLang());
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

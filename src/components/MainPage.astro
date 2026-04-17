@@ -1,0 +1,364 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Section from '../components/Section.astro';
+import { ui } from '../i18n/ui';
+import { Github, Linkedin, Twitter, Mail, Database, Smartphone, Cloud, Code, ChevronRight } from 'lucide-astro';
+
+interface Props {
+  lang: 'en' | 'es';
+}
+
+const { lang } = Astro.props;
+const t = (key: string) => ui[lang][key as keyof typeof ui['en']] || key;
+
+const skills = [
+  { 
+    title: t('skills.web'), 
+    icon: Code,
+    items: ['PHP', 'WordPress CMS', 'CodeIgniter Framework', 'ReactJS / NextJS / AstroJS']
+  },
+  { 
+    title: t('skills.db'), 
+    icon: Database,
+    items: ['MySQL', 'SQL Server', 'Oracle', 'MongoDB']
+  },
+  { 
+    title: t('skills.mobile'), 
+    icon: Smartphone,
+    items: ['TypeScript', 'React Native', 'Firebase']
+  },
+  { 
+    title: t('skills.devops'), 
+    icon: Cloud,
+    items: ['Linux Sysadmin', 'Docker', 'Kubernetes']
+  }
+];
+---
+
+<Layout title="Kike Becerra | Fullstack & Mobile Developer">
+  <Navbar lang={lang as 'en' | 'es'} />
+
+  <main class="main-container">
+    <Section id="home" active={true}>
+      <div class="hero-content">
+        <div class="logo-wrapper">
+          <img src="/assets/img/beza.png" alt="Beza Logo" class="logo" />
+        </div>
+        <div class="text-content">
+          <p class="greeting">{t('hero.greeting')}</p>
+          <h1 class="name">Kike Becerra</h1>
+          <p class="roles" data-roles={t('hero.roles')}>
+            <span id="typed-text"></span>
+            <span class="cursor">|</span>
+          </p>
+          <div class="social-links">
+            <a href="https://github.com/kabeza" target="_blank" class="social-icon" title="GitHub">
+              <Github size={24} />
+            </a>
+            <a href="https://linkedin.com/in/kabeza/" target="_blank" class="social-icon" title="LinkedIn">
+              <Linkedin size={24} />
+            </a>
+            <a href="https://twitter.com/kabeza" target="_blank" class="social-icon" title="Twitter">
+              <Twitter size={24} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="about">
+      <div class="about-grid">
+        <div class="about-header">
+          <h2 class="section-title">{t('about.title')}</h2>
+          <p class="about-text">{t('about.text')}</p>
+        </div>
+        <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#64;&#98;&#101;&#122;&#97;&#46;&#99;&#111;&#109;&#46;&#97;&#114;" class="contact-card">
+          <Mail size={20} />
+          <span>&#107;&#64;&#98;&#101;&#122;&#97;&#46;&#99;&#111;&#109;&#46;&#97;&#114;</span>
+        </a>
+      </div>
+    </Section>
+
+    <Section id="skills">
+      <h2 class="section-title">{t('nav.skills')}</h2>
+      <div class="skills-grid">
+        {skills.map(skill => (
+          <div class="skill-card">
+            <div class="skill-card-header">
+              <skill.icon size={24} class="skill-icon" />
+              <h3>{skill.title}</h3>
+            </div>
+            <ul>
+              {skill.items.map(item => (
+                <li>
+                  <ChevronRight size={14} class="bullet" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </Section>
+  </main>
+
+  <footer class="footer">
+    <p>© {new Date().getFullYear()} BEZA :: {t('footer.description')}</p>
+  </footer>
+</Layout>
+
+<style>
+  .main-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .logo-wrapper {
+    flex: 0 0 200px;
+  }
+
+  .logo {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .greeting {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .name {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, var(--text-main), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .roles {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    min-height: 2.2rem;
+  }
+
+  .social-links {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .social-icon {
+    color: var(--text-muted);
+  }
+
+  .social-icon:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+  }
+
+  /* About Grid */
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+  }
+
+  .about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(var(--primary), 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    width: fit-content;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .contact-card:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .skill-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--card-border);
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    transition: var(--transition);
+  }
+
+  .skill-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+  }
+
+  .skill-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .skill-icon {
+    color: var(--primary);
+  }
+
+  .skill-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .skill-card li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .bullet {
+    color: var(--primary);
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 2rem;
+    right: 3rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    z-index: 50;
+  }
+
+  /* Typed cursor */
+  .cursor {
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  @media (max-width: 900px) {
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+    .logo-wrapper {
+      flex: 0 0 150px;
+      width: 150px;
+    }
+    .name { font-size: 2.5rem; }
+    .roles { font-size: 1.2rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .footer {
+      position: relative;
+      bottom: auto;
+      right: auto;
+      text-align: center;
+      padding: 2rem;
+    }
+    .main-container {
+      height: auto;
+      overflow: auto;
+    }
+  }
+</style>
+
+<script>
+  // Typed effect
+  const typedEl = document.getElementById('typed-text');
+  const rolesAttr = document.querySelector('.roles')?.getAttribute('data-roles');
+  
+  if (typedEl && rolesAttr) {
+    const roles = rolesAttr.split(',').map(r => r.trim());
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typeSpeed = 100;
+
+    function type() {
+      const currentRole = roles[roleIndex];
+      
+      if (isDeleting) {
+        typedEl!.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50;
+      } else {
+        typedEl!.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 100;
+      }
+
+      if (!isDeleting && charIndex === currentRole.length) {
+        isDeleting = true;
+        typeSpeed = 2000; // Pause at end
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 500;
+      }
+
+      setTimeout(type, typeSpeed);
+    }
+
+    type();
+  }
+
+  // Handle language from localStorage on mount (obsolete, handled by routing)
+</script>
