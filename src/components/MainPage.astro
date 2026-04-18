@@ -1,43 +1,58 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Section from '../components/Section.astro';
-import { ui } from '../i18n/ui';
-import { Github, Linkedin, Twitter, Mail, Database, Smartphone, Cloud, Code, ChevronRight } from 'lucide-astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Section from "../components/Section.astro";
+import { ui } from "../i18n/ui";
+import {
+  Github,
+  Linkedin,
+  Twitter,
+  Mail,
+  Database,
+  Smartphone,
+  Cloud,
+  Code,
+  ChevronRight,
+} from "lucide-astro";
 
 interface Props {
-  lang: 'en' | 'es';
+  lang: "en" | "es";
 }
 
 const { lang } = Astro.props;
-const t = (key: string) => ui[lang][key as keyof typeof ui['en']] || key;
+const t = (key: string) => ui[lang][key as keyof (typeof ui)["en"]] || key;
 
 const skills = [
-  { 
-    title: t('skills.web'), 
+  {
+    title: t("skills.web"),
     icon: Code,
-    items: ['PHP', 'WordPress CMS', 'CodeIgniter Framework', 'ReactJS / NextJS / AstroJS']
+    items: [
+      "PHP",
+      "WordPress CMS",
+      "CodeIgniter Framework",
+      "ReactJS / NextJS / AstroJS",
+    ],
   },
-  { 
-    title: t('skills.db'), 
+  {
+    title: t("skills.db"),
     icon: Database,
-    items: ['MySQL', 'SQL Server', 'Oracle', 'MongoDB']
+    items: ["MySQL", "SQL Server", "Oracle", "MongoDB"],
   },
-  { 
-    title: t('skills.mobile'), 
+  {
+    title: t("skills.mobile"),
     icon: Smartphone,
-    items: ['TypeScript', 'React Native', 'Firebase']
+    items: ["TypeScript", "React Native", "Firebase"],
   },
-  { 
-    title: t('skills.devops'), 
+  {
+    title: t("skills.devops"),
     icon: Cloud,
-    items: ['Linux Sysadmin', 'Docker', 'Kubernetes']
-  }
+    items: ["Linux Sysadmin", "Docker", "Kubernetes"],
+  },
 ];
 ---
 
 <Layout title="Kike Becerra | Fullstack & Mobile Developer">
-  <Navbar lang={lang as 'en' | 'es'} />
+  <Navbar lang={lang as "en" | "es"} />
 
   <main class="main-container">
     <Section id="home" active={true}>
@@ -46,20 +61,35 @@ const skills = [
           <img src="/assets/img/beza.png" alt="Beza Logo" class="logo" />
         </div>
         <div class="text-content">
-          <p class="greeting">{t('hero.greeting')}</p>
+          <p class="greeting">{t("hero.greeting")}</p>
           <h1 class="name">Kike Becerra</h1>
-          <p class="roles" data-roles={t('hero.roles')}>
+          <p class="roles" data-roles={t("hero.roles")}>
             <span id="typed-text"></span>
             <span class="cursor">|</span>
           </p>
           <div class="social-links">
-            <a href="https://github.com/kabeza" target="_blank" class="social-icon" title="GitHub">
+            <a
+              href="https://github.com/kabeza"
+              target="_blank"
+              class="social-icon"
+              title="GitHub"
+            >
               <Github size={24} />
             </a>
-            <a href="https://linkedin.com/in/kabeza/" target="_blank" class="social-icon" title="LinkedIn">
+            <a
+              href="https://linkedin.com/in/kabeza/"
+              target="_blank"
+              class="social-icon"
+              title="LinkedIn"
+            >
               <Linkedin size={24} />
             </a>
-            <a href="https://twitter.com/kabeza" target="_blank" class="social-icon" title="Twitter">
+            <a
+              href="https://twitter.com/kabeza"
+              target="_blank"
+              class="social-icon"
+              title="Twitter"
+            >
               <Twitter size={24} />
             </a>
           </div>
@@ -70,41 +100,45 @@ const skills = [
     <Section id="about">
       <div class="about-grid">
         <div class="about-header">
-          <h2 class="section-title">{t('about.title')}</h2>
-          <p class="about-text">{t('about.text')}</p>
+          <h2 class="section-title">{t("about.title")}</h2>
+          <p class="about-text">{t("about.text")}</p>
         </div>
-        <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#107;&#64;&#98;&#101;&#122;&#97;&#46;&#99;&#111;&#109;&#46;&#97;&#114;" class="contact-card">
+        <a href="mailto:k@beza.com.ar" class="contact-card">
           <Mail size={20} />
-          <span>&#107;&#64;&#98;&#101;&#122;&#97;&#46;&#99;&#111;&#109;&#46;&#97;&#114;</span>
+          <span
+            >&#107;&#64;&#98;&#101;&#122;&#97;&#46;&#99;&#111;&#109;&#46;&#97;&#114;</span
+          >
         </a>
       </div>
     </Section>
 
     <Section id="skills">
-      <h2 class="section-title">{t('nav.skills')}</h2>
+      <h2 class="section-title">{t("nav.skills")}</h2>
       <div class="skills-grid">
-        {skills.map(skill => (
-          <div class="skill-card">
-            <div class="skill-card-header">
-              <skill.icon size={24} class="skill-icon" />
-              <h3>{skill.title}</h3>
+        {
+          skills.map((skill) => (
+            <div class="skill-card">
+              <div class="skill-card-header">
+                <skill.icon size={24} class="skill-icon" />
+                <h3>{skill.title}</h3>
+              </div>
+              <ul>
+                {skill.items.map((item) => (
+                  <li>
+                    <ChevronRight size={14} class="bullet" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul>
-              {skill.items.map(item => (
-                <li>
-                  <ChevronRight size={14} class="bullet" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </Section>
   </main>
 
   <footer class="footer">
-    <p>© {new Date().getFullYear()} BEZA :: {t('footer.description')}</p>
+    <p>© {new Date().getFullYear()} BEZA :: {t("footer.description")}</p>
   </footer>
 </Layout>
 
@@ -123,7 +157,7 @@ const skills = [
   }
 
   .logo-wrapper {
-    flex: 0 0 200px;
+    flex: 0 0 300px;
   }
 
   .logo {
@@ -134,8 +168,13 @@ const skills = [
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   .greeting {
@@ -190,7 +229,7 @@ const skills = [
   }
 
   .section-title::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -289,8 +328,13 @@ const skills = [
     animation: blink 1s infinite;
   }
   @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 
   @media (max-width: 900px) {
@@ -300,12 +344,21 @@ const skills = [
       gap: 1rem;
     }
     .logo-wrapper {
-      flex: 0 0 150px;
-      width: 150px;
+      flex: 0 0 50px;
+      width: 250px;
     }
-    .name { font-size: 2.5rem; }
-    .roles { font-size: 1.2rem; }
-    .skills-grid { grid-template-columns: 1fr; }
+    .logo {
+      margin-top: 40px;
+    }
+    .name {
+      font-size: 2.5rem;
+    }
+    .roles {
+      font-size: 1.2rem;
+    }
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
     .footer {
       position: relative;
       bottom: auto;
@@ -322,11 +375,13 @@ const skills = [
 
 <script>
   // Typed effect
-  const typedEl = document.getElementById('typed-text');
-  const rolesAttr = document.querySelector('.roles')?.getAttribute('data-roles');
-  
+  const typedEl = document.getElementById("typed-text");
+  const rolesAttr = document
+    .querySelector(".roles")
+    ?.getAttribute("data-roles");
+
   if (typedEl && rolesAttr) {
-    const roles = rolesAttr.split(',').map(r => r.trim());
+    const roles = rolesAttr.split(",").map((r) => r.trim());
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -334,7 +389,7 @@ const skills = [
 
     function type() {
       const currentRole = roles[roleIndex];
-      
+
       if (isDeleting) {
         typedEl!.textContent = currentRole.substring(0, charIndex - 1);
         charIndex--;
